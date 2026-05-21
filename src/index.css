@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom visual utilities to replicate Obsidian Emerald and Gold themes precisely */
+.tilet-pattern {
+  background-image: radial-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.tilet-pattern-lines {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Golden Ethiopian weave visual accent line */
+.tilet-divider {
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #D4AF37 0px,
+    #D4AF37 4px,
+    transparent 4px,
+    transparent 8px,
+    #10B981 8px,
+    #10B981 12px,
+    transparent 12px,
+    transparent 16px
+  );
+  opacity: 0.15;
+}
+
+/* Glassmorphic border */
+.border-glass {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Emerald glow filters */
+.emerald-glow {
+  box-shadow: 0 0 40px -5px rgba(16, 185, 129, 0.15);
+}
+
+.gold-glow {
+  box-shadow: 0 0 40px -5px rgba(233, 195, 73, 0.12);
+}
+
+/* Standard glass containers matching Material Design elevation heights */
+.glass-container {
+  background-color: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.3);
+}
