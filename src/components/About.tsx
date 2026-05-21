@@ -1,8 +1,33 @@
 import { Sparkles, Terminal, ShieldAlert } from 'lucide-react';
 import { motion } from 'motion/react';
 import { HERO_DATA } from '../data';
+import { useApp } from '../AppContext';
+import { TRANSLATIONS } from '../translations';
 
 export default function About() {
+  const { lang } = useApp();
+  const t = TRANSLATIONS[lang];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: 'easeOut' as any },
+    },
+  };
+
   return (
     <section className="py-24 px-5 md:px-12 relative overflow-hidden bg-[#0e0e0e]" id="about">
       <div className="absolute inset-0 tilet-pattern-lines opacity-20 pointer-events-none" />
@@ -23,7 +48,7 @@ export default function About() {
 
             <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#121212] aspect-[4/5] shadow-2xl">
               <img
-                alt="Professional portrait of Obsa Mustefa"
+                alt="Professional portrait of OMX figoDevTech"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-103 cursor-pointer"
                 src={HERO_DATA.portraitUrl}
                 referrerPolicy="no-referrer"
@@ -46,62 +71,62 @@ export default function About() {
 
           {/* Narrative Content Column */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
             className="lg:col-span-7 flex flex-col gap-6 lg:pl-10 text-left"
           >
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#e9c349] uppercase font-semibold">
+            <motion.div variants={itemVariants} className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#e9c349] uppercase font-semibold">
               <Terminal size={14} />
-              <span>Developer Manifesto</span>
-            </div>
-
-            <h2 className="font-sans text-3xl md:text-5xl font-black text-white tracking-tight leading-none mb-2">
-              Engineering with Purpose
-            </h2>
-
-            <div className="h-[1px] w-12 bg-[#4edea3]" />
-
-            <p className="font-sans text-base md:text-lg text-gray-400 leading-relaxed font-light">
-              As a Senior Full-Stack and Mobile Developer, my mission is to craft digital solutions that drive measurable real-world impact. With a steadfast focus on scalable system architecture and seamless user experiences, I bridge the divide between highly complex technical requirements and elegant product design.
-            </p>
-
-            <p className="font-sans text-base md:text-lg text-gray-400 leading-relaxed font-light">
-              Whether orchestrating a microservices backend or building a fluid 60fps cross-platform mobile app, my approach remains the same: code is merely a tool to solve human problems efficiently and beautifully.
-            </p>
-
+              <span>{t.manifesto}</span>
+            </motion.div>
+ 
+            <motion.h2 variants={itemVariants} className="font-sans text-3xl md:text-5xl font-black text-white tracking-tight leading-none mb-2">
+              {t.manifestoTitle}
+            </motion.h2>
+ 
+            <motion.div variants={itemVariants} className="h-[1px] w-12 bg-[#4edea3]" />
+ 
+            <motion.p variants={itemVariants} className="font-sans text-base md:text-lg text-gray-400 leading-relaxed font-light">
+              {t.manifestoDesc1}
+            </motion.p>
+ 
+            <motion.p variants={itemVariants} className="font-sans text-base md:text-lg text-gray-400 leading-relaxed font-light">
+              {t.manifestoDesc2}
+            </motion.p>
+ 
             {/* Animated badges grid */}
-            <div className="grid grid-cols-2 gap-4 mt-4 font-mono text-xs text-gray-400">
+            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4 mt-4 font-mono text-xs text-gray-400">
               <motion.div
                 whileHover={{ scale: 1.02, x: 2, borderColor: 'rgba(16, 185, 129, 0.3)' }}
                 className="flex items-center gap-2 bg-white/1 border border-white/5 p-3 rounded-lg transition-colors cursor-default"
               >
                 <span className="text-[#4edea3]">✦</span>
-                <span>Type-Safe Coding Principles</span>
+                <span>{t.badgeTypesafe}</span>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.02, x: 2, borderColor: 'rgba(233, 195, 73, 0.3)' }}
                 className="flex items-center gap-2 bg-white/1 border border-white/5 p-3 rounded-lg transition-colors cursor-default"
               >
                 <span className="text-[#e9c349]">✦</span>
-                <span>Clean Architecture Layouts</span>
+                <span>{t.badgeCleanArch}</span>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.02, x: 2, borderColor: 'rgba(233, 195, 73, 0.3)' }}
                 className="flex items-center gap-2 bg-white/1 border border-white/5 p-3 rounded-lg transition-colors cursor-default"
               >
                 <span className="text-[#e9c349]">✦</span>
-                <span>Mobile Performance Focus</span>
+                <span>{t.badgeMobilePerf}</span>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.02, x: 2, borderColor: 'rgba(16, 185, 129, 0.3)' }}
                 className="flex items-center gap-2 bg-white/1 border border-white/5 p-3 rounded-lg transition-colors cursor-default"
               >
                 <span className="text-[#4edea3]">✦</span>
-                <span>Secure API Boundaries</span>
+                <span>{t.badgeApiBoundaries}</span>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

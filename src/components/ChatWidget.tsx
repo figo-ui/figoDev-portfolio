@@ -135,7 +135,7 @@ export default function ChatWidget({ onSaveChatTranscript }: ChatWidgetProps) {
   };
 
   // 6. Handle sending a message
-  const handleSendMessage = (textToSend: string) => {
+  const handleSendMessage = async (textToSend: string) => {
     if (!textToSend.trim() || isTyping) return;
 
     const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -152,7 +152,44 @@ export default function ChatWidget({ onSaveChatTranscript }: ChatWidgetProps) {
 
     // Trigger AI Agent Response with Simulated Chat Typing Loop
     setIsTyping(true);
-    setTimeout(() => {
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: textToSend,
+          history: messages,
+        }),
+      });
+
+      let responseText = '';
+      if (response.ok) {
+        const data = await response.json();
+        responseText = data.reply;
+      } else {
+        responseText = queryResponseMatcher(textToSend);
+      }
+
+      const obsaTimeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const obsaMsg: ChatMessage = {
+        id: Math.random().toString(36).substring(2, 9),
+        sender: 'obsa',
+        text: responseText,
+        timestamp: obsaTimeStr,
+      };
+
+      const finalMessages = [...updated, obsaMsg];
+      saveHistoryLocally(finalMessages);
+      setIsTyping(false);
+
+      if (!contactSaved && (updated.length >= 3 || responseText.includes('offline coding') || responseText.includes('quant-mode'))) {
+        setShowContactPrompt(true);
+      }
+    } catch (err) {
+      // Graceful offline fallback in case of transient gateway/connection issues
       const responseText = queryResponseMatcher(textToSend);
       const obsaTimeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       const obsaMsg: ChatMessage = {
@@ -166,11 +203,10 @@ export default function ChatWidget({ onSaveChatTranscript }: ChatWidgetProps) {
       saveHistoryLocally(finalMessages);
       setIsTyping(false);
 
-      // Prompt for contact credentials if we gave a generic/complex answer and they haven't saved contact info yet
       if (!contactSaved && (updated.length >= 3 || responseText.includes('offline coding'))) {
         setShowContactPrompt(true);
       }
-    }, 1200 + Math.random() * 800); // Dynamic organic response interval
+    }
   };
 
   const handleFormSubmit = (e: FormEvent) => {

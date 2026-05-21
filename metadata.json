@@ -1,6 +1,6 @@
 {
-  "name": "Software Engineering Portfolio",
-  "description": "High-performance software engineering portfolio for Obsa Mustefa showcasing architectural deep dives, selected works, and core philosophies.",
+  "name": "OMX figoDevTech",
+  "description": "High-performance software engineering platform and personal hub for OMX figoDevTech, showcasing public and private works across web, app, AI, UI/UX design templates, research, and dynamic daily project journey streams.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

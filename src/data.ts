@@ -1,17 +1,17 @@
 import { Project, DeepDive, PhilosophyItem, SkillCategory } from './types';
 
 export const HERO_DATA = {
-  name: 'Obsa Mustefa',
-  title: 'Senior Full-Stack & Mobile Engineer | Architecting robust digital systems.',
-  description: 'I engineer resilient applications across the stack utilizing React Native, Next.js, Flutter, and AI technologies. I combine rigorous architectural design with elegant execution to deliver enterprise-grade scalable solutions.',
+  name: 'OMX figoDevTech',
+  title: 'Full-Stack Labs & Tech Ventures | Web, App, AI, UI/UX & Research Research Node',
+  description: 'I architect state-of-the-art applications, bespoke design boilerplates, and secure AI systems. Discover my public works portfolio, private security designs, and daily development journey logs tracing systems from inception to production.',
   location: 'Addis Ababa, Ethiopia',
   email: 'obsafigo@gmail.com',
-  portraitUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB128MtR2Z6X3RTrxmV90GYKF20rmfsvMrgvBUmFUDgml_-vNZeg2GO2MJKdiSETAUyXAKKSFfH9fLeKyu_9-f9Qkd94LyNBZA1hP1eWuJ2zJpsf25u5yapJ_twMVoUJMA4WbM3I37_uLOXhke3uWGm5FTL_Bm3iHG8nHIeDhEwXiym0QyOII1wxenrmZU3KyNtfFo7EVx_5b6LZcJQK5EhCGE_UGaQ_yTj9fcr0DsWmMI-rtVjNEJ0Kaz4tCjU7VwidXrXKLL4SQ',
+  portraitUrl: '/portrait.jpg',
   stats: [
     { value: '5+', label: 'Years Experience', accent: 'emerald' },
-    { value: '5+', label: 'Major Deployments', accent: 'gold' },
-    { value: '2.5k', label: 'GitHub Commits (YTD)', accent: 'emerald' },
-    { value: '10+', label: 'Core Tech Stacks', accent: 'gold' },
+    { value: '15+', label: 'Published Systems', accent: 'gold' },
+    { value: '3.2k', label: 'GitHub Commits (YTD)', accent: 'emerald' },
+    { value: '12+', label: 'Stitch & Design Templates', accent: 'gold' },
   ]
 };
 
@@ -28,6 +28,8 @@ export const PROJECTS: Project[] = [
     liveUrl: '#',
     githubUrl: 'https://github.com/figo-ui/weplay',
     accentColor: 'emerald',
+    category: 'APP',
+    isPrivate: false,
     caseStudy: {
       technicalChallenge: 'Managing extreme state synchronization in chat and collaborative canvas dashboards across thousands of concurrent mobile devices while maintaining 60 FPS.',
       solutionDetail: 'Architected a custom state manager combining SQLite cache with a selective WebSocket event bus. Integrated Redis Pub/Sub backend to horizontally scale active communication channels.',
@@ -78,6 +80,8 @@ export class EventDispatcher {
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBrijBrve13n3su8r8JT3Po61DI8QMOGGK5WqZNZGk7rOYABgp9jUJX3MwL8gIvmumzUZ7k7_64mstdCW79sQp9uoH6epaI7TmzUP2BqgFpwcvKT-JyfJt-nJw4jj_PmUxmNqDNrULtMRuIA68zA8zYkwt-jDCj3LBX8qFAZdo5K5Z8OUROlpmnkuvrYu2Lce5O7fxE4100NpARl39UIWC8L_0ivlYb7Fj89GDGl1350rlO4tpWYFGBXS4efnBMIdmKgUzco0yVdA',
     githubUrl: 'https://github.com/figo-ui/healthcare-ai',
     accentColor: 'gold',
+    category: 'AI',
+    isPrivate: false,
     caseStudy: {
       technicalChallenge: 'Protecting patient privacy (HIPAA equivalent) and preventing LLM hallucinations under zero-latency constraints for critical advice.',
       solutionDetail: 'Constructed an on-premise Vector DB storage paired with pre-moderation guardrails. Queries are routed through custom semantic search layers filtering content based on peer-reviewed local medical manuals.',
@@ -124,6 +128,8 @@ class SecureRetrievalPipeline:
     icon: 'health_and_safety',
     githubUrl: 'https://github.com/figo-ui/cbhi',
     accentColor: 'emerald',
+    category: 'APP',
+    isPrivate: false,
     caseStudy: {
       technicalChallenge: 'Enabling remote health officers to authenticate claimants and verify coverage without any cellular network coverage.',
       solutionDetail: 'Designed a regional device-to-device local sync model. Encrypted client information is pre-cached in local Hive store, verifying claims via secure asymmetric key QR-code validation.',
@@ -177,6 +183,8 @@ class SecureRetrievalPipeline:
     icon: 'event_note',
     githubUrl: 'https://github.com/figo-ui/leave-management',
     accentColor: 'gold',
+    category: 'WEB',
+    isPrivate: false,
     caseStudy: {
       technicalChallenge: 'Creating a highly customizable, visual, dynamic approval chain that department heads can modify without editing code.',
       solutionDetail: 'Developed a relational DAG database model where approval routes are evaluated recursively behind a node-based state machine.',
@@ -226,6 +234,8 @@ export function evaluateNextStep(nodes: ApprovalNode[], currentNodeId: string): 
     icon: 'devices',
     githubUrl: 'https://github.com/figo-ui/najjashi',
     accentColor: 'emerald',
+    category: 'APP',
+    isPrivate: false,
     caseStudy: {
       technicalChallenge: 'Achieving sub-100ms first paint on legacy Android devices with low RAM speeds.',
       solutionDetail: 'Eliminated unnecessary native dependencies. Refined native components to avoid over-nesting, and leveraged pure performance memoization engines to control screen re-renders.',
@@ -267,6 +277,90 @@ const styles = StyleSheet.create({
   labelText: { fontSize: 13, color: '#c4c7c7' },
   valueText: { fontSize: 13, fontWeight: 'bold', color: '#e5e2e1' },
 });`
+    }
+  },
+  {
+    id: 'mx-glass-ui',
+    title: 'OMX Glassmorphic Dashboard UI/UX Template',
+    subtitle: 'Premium dashboard template featuring highly polished Glassmorphism styles and components.',
+    description: 'A React-powered modern responsive dashboard mockup with custom CSS blurred overlays, smooth micro-interactions, and premium layout structure.',
+    problem: 'Standard dashboard themes look blocky, lack visual depth, and fail to provide responsive atmospheric feeling.',
+    impact: 'Crafted a reusable design kit reducing client UI mockup setup and asset compilation delay by 55%.',
+    technologies: ['React', 'Tailwind CSS', 'Glassmorphism', 'Framer Motion'],
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200',
+    liveUrl: '#',
+    githubUrl: 'https://github.com/figo-ui',
+    accentColor: 'emerald',
+    category: 'UI_UX',
+    isPrivate: false,
+    caseStudy: {
+      technicalChallenge: 'Reconciliation of blurred backdrop filters with zero rendering lag on chrome container contexts.',
+      solutionDetail: 'Engineered hardware-accelerated CSS layers utilizing transform3d matrices to bypass standard CPU pixel rendering threads.',
+      architecturalHighlights: [
+        'Created high-contrast typography palettes paired with deep absolute card shadows.',
+        'Established responsive modular grids translating perfectly to narrow mobile screen views.',
+        'Bundled design tokens into lightweight tailwind extensions.'
+      ],
+      metrics: [
+        'Sub-5ms backdrop overlay paint times',
+        'Reusable across 10+ scalable application dashboards',
+        'Fully responsive 4K down to mobile touch views'
+      ]
+    }
+  },
+  {
+    id: 'rls-isolation-research',
+    title: 'Research Paper: Multi-Tenant Data Isolation and Row Security Matrices',
+    subtitle: 'A formal research paper detailing performance impacts of RLS and database level shielding policies.',
+    description: 'A technical analysis document studying the mathematical and system validation benchmarks of PostgreSQL RLS policies in SaaS networks.',
+    problem: 'Evaluating connection pooling handshake latency overhead when injecting SET LOCAL session parameters recursively.',
+    impact: 'Published formal benchmarks proving that properly indexed tenant attributes maintain near-zero performance variance.',
+    technologies: ['PostgreSQL', 'LaTeX', 'Benchmark Engines', 'Systems Security'],
+    image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=1200',
+    liveUrl: '#',
+    githubUrl: 'https://github.com/figo-ui',
+    accentColor: 'gold',
+    category: 'RESEARCH',
+    isPrivate: false,
+    caseStudy: {
+      technicalChallenge: 'Simulating 10,000 concurrent database session connection pools to extract accurate microsecond offsets.',
+      solutionDetail: 'Constructed automated k6 testing cluster scenarios running in isolated isolated Docker environments.',
+      architecturalHighlights: [
+        'Defined mathematical latency curves for nested JOIN commands with RLS active.',
+        'Authenticated tenant-row access verify proofs preventing SQL bypass exploits.',
+        'Prototyped memory cache guidelines to skip metadata setting check on warm pools.'
+      ],
+      metrics: [
+        '99.8% accurate testing simulations under stress',
+        'Identified configuration tuning adjusting caching up to 15%',
+        'Published in systems security research repository'
+      ]
+    }
+  },
+  {
+    id: 'private-jwt-auth',
+    title: '🔒 Cryptographic Token Isolation Proxy',
+    subtitle: 'Proprietary internal gateway managing OAuth flow variables and cryptographic token verification.',
+    description: 'A highly secure private credential backend managing localized SSH handshakes and cryptographic token validations.',
+    problem: 'Preventing private token leaks and securing enterprise-level workspace integrations from client side visibility.',
+    impact: 'Established secure, sealed server routes with HIPAA level encrypted memory arrays.',
+    technologies: ['NodeJS', 'AES-256-GCM', 'Docker Secret', 'JWT Core'],
+    accentColor: 'gold',
+    category: 'AI',
+    isPrivate: true,
+    caseStudy: {
+      technicalChallenge: 'Preventing timing attacks on signature validation paths.',
+      solutionDetail: 'Implemented constant-time cryptographic comparison functions for all token validation chains.',
+      architecturalHighlights: [
+        'Isolated private key credentials inside hardened hardware tokens.',
+        'Activated automated cluster-wide key rotation sweeps twice daily.',
+        'Configured real-time security alerts to monitor key usage frequencies.'
+      ],
+      metrics: [
+        'Constant <2.1ms validation duration tracking',
+        'Zero cryptographic keys leaked under aggressive pen-testing tests',
+        'Passed audit validations cleanly'
+      ]
     }
   }
 ];

@@ -40,6 +40,97 @@
   border-color: rgba(255, 255, 255, 0.08);
 }
 
+/* Premium Light Mode Overrides */
+.light-mode {
+  background-color: #faf9f6 !important;
+  color: #111111 !important;
+}
+
+.light-mode ::-webkit-scrollbar-track {
+  background: #f4f3f0;
+}
+
+.light-mode ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Light mode specific element mappings */
+.light-mode .bg-\[\#080808\],
+.light-mode .bg-\[\#0e0e0e\],
+.light-mode section,
+.light-mode main {
+  background-color: #faf9f6 !important;
+}
+
+.light-mode .bg-\[\#121212\],
+.light-mode .bg-\[\#121212\]\/90,
+.light-mode .glass-container {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04) !important;
+}
+
+.light-mode .text-white,
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode h4 {
+  color: #111111 !important;
+}
+
+.light-mode .text-gray-300 {
+  color: #2e2e2e !important;
+}
+
+.light-mode .text-gray-400 {
+  color: #555555 !important;
+}
+
+.light-mode .text-gray-500 {
+  color: #777777 !important;
+}
+
+.light-mode .border-white\/10,
+.light-mode .border-white\/5,
+.light-mode .border-glass,
+.light-mode .tilet-divider {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-mode input,
+.light-mode textarea {
+  background-color: #f4f3f0 !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #111111 !important;
+}
+
+.light-mode input:focus,
+.light-mode textarea:focus {
+  border-color: #10B981 !important;
+  box-shadow: 0 0 0 1px #10B981 !important;
+}
+
+.light-mode .bg-white\/1 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  color: #2e2e2e !important;
+}
+
+.light-mode .tilet-pattern {
+  background-image: radial-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px) !important;
+}
+
+.light-mode .tilet-pattern-lines {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px) !important;
+}
+
+.light-mode .bg-black\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #111111 !important;
+}
+
 /* Emerald glow filters */
 .emerald-glow {
   box-shadow: 0 0 40px -5px rgba(16, 185, 129, 0.15);

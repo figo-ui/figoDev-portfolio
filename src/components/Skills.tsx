@@ -36,7 +36,7 @@ export default function Skills() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 1, 0.5, 1], // Custom cubic-bezier for snappy, clean motion
+        ease: [0.25, 1, 0.5, 1] as any, // Custom cubic-bezier for snappy, clean motion
       },
     },
   };
